@@ -18,11 +18,15 @@ variable "is_public" {
 variable "subnet_names" {
   description = "Defines the number and names of subnets"
   type = list(string)
-  default = [ "subnet1", "subnet2", "subnet3" ]
+  default = [ "vm-snet" ]
 }
 
 variable "subnet_prefixes" {
   description = "Sets the adress prefixes for each of the subnets defined by var.subnet_names"
   type = list(string)
-  default = [ "10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24" ]
+  default = [ "10.0.1.0/24" ]
+}
+
+variable "admin_password" {
+  type = string
 }
