@@ -34,7 +34,7 @@ resource "azurerm_network_interface" "app_nic" {
     name                          = "ip-${random_pet.random_name.id}"
     subnet_id                     = module.vnet.vnet_subnets[0]
     private_ip_address_allocation = "Dynamic"
-    public_ip_address_id          = var.is_public ? azurerm_public_ip.app_public_ip.id[0] : null
+    public_ip_address_id          = var.is_public ? azurerm_public_ip.app_public_ip[0].id : null
 
   }
 }
