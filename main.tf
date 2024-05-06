@@ -54,4 +54,6 @@ resource "azurerm_linux_virtual_machine" "app" {
 
   admin_username = random_pet.random_name.id
   admin_password = var.admin_password
+
+  disable_password_authentication = false
 }
