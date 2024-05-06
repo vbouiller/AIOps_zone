@@ -1,5 +1,5 @@
 resource "azurerm_public_ip" "app_public_ip" {
-  count = var.is_public ? 1 : 0
+  count               = var.is_public ? 1 : 0
   name                = "network-ip-${random_pet.random_name.id}"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
@@ -34,7 +34,8 @@ resource "azurerm_network_interface" "app_nic" {
     name                          = "ip-${random_pet.random_name.id}"
     subnet_id                     = module.vnet.vnet_subnets[0]
     private_ip_address_allocation = "Dynamic"
-    public_ip_address_id = azurerm_public_ip.app_public_ip.id
+    public_ip_address_id          = var.is_public ? azurerm_public_ip.app_public_ip.id[0] : null
+
   }
 }
 
