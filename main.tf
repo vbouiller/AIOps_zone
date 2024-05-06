@@ -56,7 +56,8 @@ resource "azurerm_linux_virtual_machine" "app" {
 
   provisioner "remote-exec" {
     inline = [
-      "apt-get update -y"
+      "apt-get update -y",
+      "touch ~/terraform.created"
     ]
   }
 
