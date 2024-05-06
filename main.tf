@@ -51,13 +51,12 @@ resource "azurerm_linux_virtual_machine" "app" {
     type     = "ssh"
     user     = self.admin_username
     password = self.admin_password
-    host     = self.public_ip
+    host     = self.public_ip_address
   }
 
   provisioner "remote-exec" {
     inline = [
-      "puppet apply",
-      "consul join ${aws_instance.web.private_ip}",
+      "apt-get update -y"
     ]
   }
 
