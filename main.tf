@@ -15,9 +15,6 @@ module "vnet" {
   resource_group_name = azurerm_resource_group.rg.name
   vnet_location = var.resource_group_location
   use_for_each = true
+  subnet_names = var.subnet_names
+  subnet_prefixes = var.subnet_prefixes
 }
-
-
-
-
-
