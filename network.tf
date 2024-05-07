@@ -28,7 +28,9 @@ resource "azurerm_network_security_group" "app_sg" {
     name = "TCP"
     protocol = "Tcp"
     direction = "Inbound"
+    source_address_prefix      = "*"
     source_port_range = "*"
+    destination_address_prefix = "*"
     destination_port_range = "5000"
     access = "Allow"
     
