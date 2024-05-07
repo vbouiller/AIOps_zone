@@ -27,6 +27,7 @@ data "hcp_packer_artifact" "ubuntu_ai_image" {
   region       = var.pkr_region
 }
 
+
 resource "azurerm_linux_virtual_machine" "app" {
   name                = "vm-${random_pet.random_name.id}"
   location            = azurerm_resource_group.rg.location
