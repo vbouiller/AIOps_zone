@@ -23,6 +23,16 @@ resource "azurerm_network_security_group" "app_sg" {
     source_address_prefix      = "*"
     destination_address_prefix = "*"
   }
+
+  security_rule {
+    name = "TCP"
+    protocol = "Tcp"
+    direction = "Inbound"
+    access = "Allow"
+    destination_port_range = "5000"
+    priority = 1002
+  } 
+
 }
 
 resource "azurerm_network_interface" "app_nic" {
