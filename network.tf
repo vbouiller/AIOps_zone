@@ -28,8 +28,10 @@ resource "azurerm_network_security_group" "app_sg" {
     name = "TCP"
     protocol = "Tcp"
     direction = "Inbound"
-    access = "Allow"
+    source_port_range = "*"
     destination_port_range = "5000"
+    access = "Allow"
+    
     priority = 1002
   } 
 
