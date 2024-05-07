@@ -30,3 +30,24 @@ variable "subnet_prefixes" {
 variable "admin_password" {
   type = string
 }
+
+variable "pkr_bucket_name" {
+  type        = string
+  description = "(Required) HCP Packer bucket name from where to pull the image"
+}
+
+variable "pkr_channel_name" {
+  type        = string
+  default     = "latest"
+  description = "(Optional) HCP Packer channel name from where to pull the image. Default: latest"
+}
+
+variable "pkr_platform" {
+  type        = string
+  description = "(Required) HCP Packer platform where the image is stored"
+}
+
+variable "pkr_region" {
+  type        = string
+  description = "(Required) HCP Packer region where the image is stored"
+}

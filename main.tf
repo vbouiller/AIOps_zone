@@ -20,13 +20,23 @@ module "vnet" {
   subnet_prefixes     = var.subnet_prefixes
 }
 
+data "hcp_packer_artifact" "ubuntu_ai_image" {
+  bucket_name  = var.pkr_bucket_name
+  channel_name = var.pkr_channel_name
+  platform     = var.pkr_platform
+  region       = var.pkr_region
+}
+
 
 resource "azurerm_linux_virtual_machine" "app" {
-  name                  = "vm-${random_pet.random_name.id}"
-  location              = azurerm_resource_group.rg.location
-  resource_group_name   = azurerm_resource_group.rg.name
+  name                = "vm-${random_pet.random_name.id}"
+  location            = azurerm_resource_group.rg.location
+  resource_group_name = azurerm_resource_group.rg.name
+  size                = "Standard_DS1_v2"
+
   network_interface_ids = [azurerm_network_interface.app_nic.id]
-  size                  = "Standard_DS1_v2"
+
+  source_image_id = data.hcp_packer_artifact.ubuntu_ai_image.external_identifier
 
   os_disk {
     name                 = "myosdisk"
@@ -34,12 +44,12 @@ resource "azurerm_linux_virtual_machine" "app" {
     storage_account_type = "Standard_LRS"
   }
 
-  source_image_reference {
-    publisher = "Canonical"
-    offer     = "0001-com-ubuntu-server-jammy"
-    sku       = "22_04-lts-gen2"
-    version   = "latest"
-  }
+  # source_image_reference {
+  #   publisher = "Canonical"
+  #   offer     = "0001-com-ubuntu-server-jammy"
+  #   sku       = "22_04-lts-gen2"
+  #   version   = "latest"
+  # }
 
   admin_username = random_pet.random_name.id
   admin_password = var.admin_password

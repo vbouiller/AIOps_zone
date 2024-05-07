@@ -25,17 +25,17 @@ resource "azurerm_network_security_group" "app_sg" {
   }
 
   security_rule {
-    name = "TCP"
-    protocol = "Tcp"
-    direction = "Inbound"
+    name                       = "TCP"
+    protocol                   = "Tcp"
+    direction                  = "Inbound"
     source_address_prefix      = "*"
-    source_port_range = "*"
+    source_port_range          = "*"
     destination_address_prefix = "*"
-    destination_port_range = "5000"
-    access = "Allow"
-    
+    destination_port_range     = "5000"
+    access                     = "Allow"
+
     priority = 1002
-  } 
+  }
 
 }
 
