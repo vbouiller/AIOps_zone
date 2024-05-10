@@ -51,7 +51,7 @@ resource "azurerm_linux_virtual_machine" "app" {
 }
 
 resource "datadog_integration_azure" "sandbox" {
-  tenant_name   = var.ARM_TENANT_ID
-  client_id     = var.ARM_CLIENT_ID
-  client_secret = var.ARM_CLIENT_SECRET
+  tenant_name   = var.TF_VAR_ARM_TENANT_ID
+  client_id     = var.TF_VAR_ARM_CLIENT_ID
+  client_secret = var.TF_VAR_ARM_CLIENT_SECRET
 }
