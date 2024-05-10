@@ -51,16 +51,3 @@ variable "pkr_region" {
   type        = string
   description = "(Required) HCP Packer region where the image is stored"
 }
-
-variable "TF_VAR_ARM_TENANT_ID" {
-  type = string
-}
-
-variable "TF_VAR_ARM_CLIENT_ID" {
-  type = string
-}
-
-variable "TF_VAR_ARM_CLIENT_SECRET" {
-  type      = string
-  sensitive = true
-}

@@ -19,6 +19,11 @@ terraform {
       source  = "DataDog/datadog"
       version = "~> 3.39.0"
     }
+
+    environment = {
+      source  = "MorganPeat/environment"
+      version = "0.2.6"
+    }
   }
 }
 
@@ -29,3 +34,5 @@ provider "azurerm" {
 provider "hcp" {}
 
 provider "datadog" {}
+
+provider "environment" {}
