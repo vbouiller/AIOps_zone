@@ -48,5 +48,10 @@ resource "azurerm_linux_virtual_machine" "app" {
   admin_password = var.admin_password
 
   disable_password_authentication = false #to be removed when switching to SSH cert
+}
 
+resource "datadog_integration_azure" "sandbox" {
+  tenant_name   = var.ARM_TENANT_ID
+  client_id     = var.ARM_CLIENT_ID
+  client_secret = var.ARM_CLIENT_SECRET
 }

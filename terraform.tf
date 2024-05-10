@@ -12,7 +12,12 @@ terraform {
 
     hcp = {
       source  = "hashicorp/hcp"
-      version = "0.88.0"
+      version = "~> 0.88.0"
+    }
+
+    datadog = {
+      source  = "DataDog/datadog"
+      version = "~> 3.39.0"
     }
   }
 }
@@ -22,3 +27,5 @@ provider "azurerm" {
 }
 
 provider "hcp" {}
+
+provider "datadog" {}
