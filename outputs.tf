@@ -3,7 +3,7 @@ output "app_public_ip" {
 }
 
 output "app_URL" {
-  value = "http://${output.app_public_ip}:5000"
+  value = "http://${azurerm_linux_virtual_machine.app.public_ip_address}:5000"
 }
 
 output "app_username" {
