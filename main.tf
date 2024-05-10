@@ -48,5 +48,10 @@ resource "azurerm_linux_virtual_machine" "app" {
   admin_password = var.admin_password
 
   disable_password_authentication = false #to be removed when switching to SSH cert
+}
 
+resource "datadog_integration_azure" "landing_zone_DD_monitoring" {
+  tenant_name   = data.environment_variable.azure_tenant_id.value
+  client_id     = data.environment_variable.azure_client_id.value
+  client_secret = data.environment_sensitive_variable.azure_client_secret.value
 }
