@@ -44,31 +44,9 @@ resource "azurerm_linux_virtual_machine" "app" {
     storage_account_type = "Standard_LRS"
   }
 
-  # source_image_reference {
-  #   publisher = "Canonical"
-  #   offer     = "0001-com-ubuntu-server-jammy"
-  #   sku       = "22_04-lts-gen2"
-  #   version   = "latest"
-  # }
-
   admin_username = random_pet.random_name.id
   admin_password = var.admin_password
 
   disable_password_authentication = false #to be removed when switching to SSH cert
-
-
-  connection {
-    type     = "ssh"
-    user     = self.admin_username
-    password = self.admin_password
-    host     = self.public_ip_address
-  }
-
-  provisioner "remote-exec" {
-    inline = [
-      "apt-get update -y",
-      "touch ~/terraform.created"
-    ]
-  }
 
 }
