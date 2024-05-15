@@ -19,7 +19,7 @@ module "vnet" {
   subnet_names        = var.subnet_names
   subnet_prefixes     = var.subnet_prefixes
   subnet_service_endpoints = {
-    var.subnet_names[0] = ["Microsoft.CognitiveServices"]
+    (var.subnet_names[0]) = ["Microsoft.CognitiveServices"]
   }
 }
 
