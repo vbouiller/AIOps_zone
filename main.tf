@@ -18,6 +18,9 @@ module "vnet" {
   use_for_each        = true
   subnet_names        = var.subnet_names
   subnet_prefixes     = var.subnet_prefixes
+  subnet_service_endpoints = {
+    var.subnet_names[0] = ["Microsoft.CognitiveServices"]
+  }
 }
 
 data "hcp_packer_artifact" "ubuntu_ai_image" {
@@ -62,6 +65,17 @@ module "openai" {
 
   resource_group_name = azurerm_resource_group.rg.name
   location            = azurerm_resource_group.rg.location
+
+  private_endpoint = {
+    "pe_endpoint" = {
+      vnet_rg_name = azurerm_resource_group.rg.name
+      vnet_name    = module.vnet.vnet_name
+      subnet_name  = var.subnet_names[0]
+
+      name = "pe_one"
+    }
+  }
+
   deployment = {
     "gpt-4" = {
       name          = var.openai_deployment_model_name
