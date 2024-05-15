@@ -55,3 +55,10 @@ resource "datadog_integration_azure" "landing_zone_DD_monitoring" {
   client_id     = data.environment_variable.azure_client_id.value
   client_secret = data.environment_sensitive_variable.azure_client_secret.value
 }
+
+module "openai" {
+  source              = "Azure/openai/azurerm"
+  version             = "0.1.3"
+  resource_group_name = azurerm_resource_group.rg.name
+  location            = azurerm_resource_group.rg.location
+}

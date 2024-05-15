@@ -9,3 +9,19 @@ output "app_URL" {
 output "app_username" {
   value = azurerm_linux_virtual_machine.app.admin_username
 }
+
+output "openai_endoint" {
+  value = module.openai.openai_endpoint
+}
+
+output "openai_id" {
+  value = module.openai.openai_id
+}
+
+output "openai_subdomain" {
+  value = module.openai.openai_subdomain
+}
+
+output "openai_privateIP" {
+  value = module.openai.private_ip_addresses
+}
