@@ -70,7 +70,7 @@ variable "openai_deployment_model_name" {
 }
 variable "openai_deployment_model_version" {
   type    = string
-  default = "0314"
+  default = "0613"
 }
 variable "openai_deployment_scale_type" {
   type    = string
