@@ -25,3 +25,13 @@ output "openai_subdomain" {
 output "openai_privateIP" {
   value = module.openai.private_ip_addresses
 }
+
+output "openai_primeK" {
+  value     = module.openai.openai_primary_key
+  sensitive = true
+}
+
+output "openai_secondK" {
+  value     = module.openai.openai_secondary_key
+  sensitive = true
+}
