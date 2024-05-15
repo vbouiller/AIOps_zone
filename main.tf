@@ -57,8 +57,19 @@ resource "datadog_integration_azure" "landing_zone_DD_monitoring" {
 }
 
 module "openai" {
-  source              = "Azure/openai/azurerm"
-  version             = "0.1.3"
+  source  = "Azure/openai/azurerm"
+  version = "0.1.3"
+
   resource_group_name = azurerm_resource_group.rg.name
   location            = azurerm_resource_group.rg.location
+  deployment = {
+    "gpt-4" = {
+      name          = var.openai_deployment_model_name
+      model_format  = var.openai_deployment_model_fmt
+      model_name    = var.openai_deployment_model_name
+      model_version = var.openai_deployment_model_version
+      scale_type    = var.openai_deployment_scale_type
+    }
+
+  }
 }

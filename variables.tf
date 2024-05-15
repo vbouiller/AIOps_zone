@@ -51,3 +51,28 @@ variable "pkr_region" {
   type        = string
   description = "(Required) HCP Packer region where the image is stored"
 }
+
+
+# OpenAI variables
+
+# variable "openai_deployment_name" {
+#   type    = string
+#   default = "testai"
+# }
+
+variable "openai_deployment_model_fmt" {
+  type    = string
+  default = "OpenAI"
+}
+variable "openai_deployment_model_name" {
+  type    = string
+  default = "gpt-4"
+}
+variable "openai_deployment_model_version" {
+  type    = string
+  default = "0314"
+}
+variable "openai_deployment_scale_type" {
+  type    = string
+  default = "Standard"
+}
