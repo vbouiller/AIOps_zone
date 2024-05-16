@@ -29,7 +29,3 @@ output "openai_secondK" {
   value     = module.openai.openai_secondary_key
   sensitive = true
 }
-
-output "pe_dns_zone" {
-  value = module.openai.azurerm_private_endpoint.this["pe_endpoint"].private_dns_zone_configs
-}
