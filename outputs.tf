@@ -10,16 +10,10 @@ output "app_username" {
   value = azurerm_linux_virtual_machine.app.admin_username
 }
 
+// Open AI Outputs
+
 output "openai_endoint" {
   value = module.openai.openai_endpoint
-}
-
-output "openai_id" {
-  value = module.openai.openai_id
-}
-
-output "openai_subdomain" {
-  value = module.openai.openai_subdomain
 }
 
 output "openai_privateIP" {
@@ -34,4 +28,8 @@ output "openai_primeK" {
 output "openai_secondK" {
   value     = module.openai.openai_secondary_key
   sensitive = true
+}
+
+output "pe_dns_zone" {
+  value = module.openai.azurerm_private_endpoint.this["pe_endpoint"].private_dns_zone_configs
 }
