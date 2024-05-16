@@ -60,6 +60,10 @@ resource "datadog_integration_azure" "landing_zone_DD_monitoring" {
 }
 
 module "openai" {
+  depends_on = [
+    module.vnet
+  ]
+  
   source  = "Azure/openai/azurerm"
   version = "0.1.3"
 
