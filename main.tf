@@ -79,6 +79,8 @@ module "openai" {
       vnet_name    = module.vnet.vnet_name
       subnet_name  = var.subnet_names[0]
 
+      private_dns_entry_enabled = true
+
       name = "pe_one"
     }
   }
