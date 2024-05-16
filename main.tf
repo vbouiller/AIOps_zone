@@ -62,8 +62,11 @@ resource "datadog_integration_azure" "landing_zone_DD_monitoring" {
 module "openai" {
   depends_on = [
     module.vnet
+    // As the vnet is referenced *in* the private_endpoint object
+    // it is not explicitely understood as a pre-requisite by terraform
+    // hence adding the explicit dependency here
   ]
-  
+
   source  = "Azure/openai/azurerm"
   version = "0.1.3"
 
