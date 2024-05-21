@@ -24,6 +24,16 @@ terraform {
       source  = "MorganPeat/environment"
       version = "0.2.6"
     }
+
+    tfe = {
+      source  = "hashicorp/tfe"
+      version = "0.55.0"
+    }
+
+    vault = {
+      source  = "hashicorp/vault"
+      version = "3.25.0"
+    }
   }
 }
 
@@ -36,3 +46,11 @@ provider "hcp" {}
 provider "datadog" {}
 
 provider "environment" {}
+
+provider "tfe" {}
+
+provider "vault" {
+  address   = data.tfe_outputs.aiops_platform_vault.nonsensitive_values.vault_cluster_adress
+  token     = data.tfe_outputs.aiops_platform_vault.values.vault_admin_token
+  namespace = data.tfe_outputs.aiops_platform_vault.nonsensitive_values.vault_cluster_namespace
+}
