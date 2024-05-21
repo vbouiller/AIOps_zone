@@ -12,8 +12,8 @@ resource "vault_kv_secret_v2" "openai" {
   data_json = jsonencode(
     {
       deployment = var.openai_deployment_model_name,
-      endpoint   = module.openai.openai_endoint,
-      location   = module.openai.location,
+      endpoint   = module.openai.openai_endpoint,
+      location   = azurerm_resource_group.rg.location,
       primekey   = module.openai.openai_primary_key
     }
   )
