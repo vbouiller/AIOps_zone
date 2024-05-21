@@ -38,7 +38,7 @@ variable "pkr_bucket_name" {
 
 variable "pkr_channel_name" {
   type        = string
-  default     = "latest"
+  default     = "production"
   description = "(Optional) HCP Packer channel name from where to pull the image. Default: latest"
 }
 
