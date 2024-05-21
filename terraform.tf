@@ -47,7 +47,9 @@ provider "datadog" {}
 
 provider "environment" {}
 
-provider "tfe" {}
+provider "tfe" {
+  hostname = "app.eu.terraform.io"
+}
 
 provider "vault" {
   address   = data.tfe_outputs.aiops_platform_vault.nonsensitive_values.vault_cluster_adress
