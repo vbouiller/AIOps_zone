@@ -37,6 +37,10 @@ resource "azurerm_linux_virtual_machine" "app" {
   resource_group_name = azurerm_resource_group.rg.name
   size                = "Standard_DS1_v2"
 
+  identity {
+    type = "SystemAssigned"
+  }
+
   network_interface_ids = [azurerm_network_interface.app_nic.id]
 
   source_image_id = data.hcp_packer_artifact.ubuntu_ai_image.external_identifier
