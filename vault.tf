@@ -36,3 +36,14 @@ resource "vault_kv_secret_v2" "agent" {
     }
   )
 }
+
+resource "vault_kv_secret_v2" "dd" {
+  mount               = vault_mount.kvv2.path
+  name                = "dd"
+  delete_all_versions = true
+  data_json = jsonencode(
+    {
+      apikey = data.environment_sensitive_variable.dd_apikey.value
+    }
+  )
+}
