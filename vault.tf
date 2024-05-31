@@ -19,24 +19,6 @@ resource "vault_kv_secret_v2" "openai" {
   )
 }
 
-resource "vault_token" "agent" {
-  policies     = ["agent"]
-  ttl          = "10m"
-  renewable    = true
-  display_name = "Vault agent token"
-}
-
-resource "vault_kv_secret_v2" "agent" {
-  mount               = vault_mount.kvv2.path
-  name                = "agent"
-  delete_all_versions = true
-  data_json = jsonencode(
-    {
-      token = vault_token.agent.client_token
-    }
-  )
-}
-
 resource "vault_kv_secret_v2" "dd" {
   mount               = vault_mount.kvv2.path
   name                = "dd"
