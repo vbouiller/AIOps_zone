@@ -52,6 +52,11 @@ variable "pkr_region" {
   description = "(Required) HCP Packer region where the image is stored"
 }
 
+variable "azure_pkey" {
+  type        = string
+  description = "(Required) Public key needed for Azure VM access"
+}
+
 
 # OpenAI variables
 

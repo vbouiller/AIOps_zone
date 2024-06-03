@@ -52,9 +52,13 @@ resource "azurerm_linux_virtual_machine" "app" {
   }
 
   admin_username = random_pet.random_name.id
-  admin_password = var.admin_password
+  # admin_password = var.admin_password
+  admin_ssh_key {
+    public_key = var.azure_pkey
+    username   = random_pet.random_name.id
+  }
 
-  disable_password_authentication = false #to be removed when switching to SSH cert
+  disable_password_authentication = true #to be removed when switching to SSH cert
 }
 
 resource "datadog_integration_azure" "landing_zone_DD_monitoring" {
