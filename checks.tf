@@ -1,6 +1,6 @@
 check "front_end_200" {
   data "http" "front_end" {
-    url = output.app_URL.value
+    url = "http://${azurerm_linux_virtual_machine.app.public_ip_address}:5000"
   }
 
   assert {
