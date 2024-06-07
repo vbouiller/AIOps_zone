@@ -59,7 +59,7 @@ resource "azurerm_linux_virtual_machine" "app" {
   #   username   = random_pet.random_name.id
   # }
 
-  disable_password_authentication = false
+  disable_password_authentication = true
 }
 
 resource "datadog_integration_azure" "landing_zone_DD_monitoring" {
