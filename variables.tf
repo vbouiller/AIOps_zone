@@ -60,6 +60,18 @@ variable "azure_pkey" {
   description = "(Required) Public key needed for Azure VM access"
 }
 
+variable "ws_platform_org" {
+  type        = string
+  description = "(Optional) Name of the organisation where the platform workspace is. Used by tfe_outputs data source. Default: TFC-Unification-Test-Org-2"
+  default     = "TFC-Unification-Test-Org-2"
+}
+
+variable "ws_platform_name" {
+  type        = string
+  description = "(Optional) Name of the workspace hosting the platform infra for tfe_outputs data source. Default: AIOps_platform"
+  default     = "AIOps_platform"
+}
+
 
 # OpenAI variables
 

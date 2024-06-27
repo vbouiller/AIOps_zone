@@ -19,6 +19,6 @@ data "environment_sensitive_variable" "dd_apikey" {
 # AIOps_Platform HCP outputs
 
 data "tfe_outputs" "aiops_platform_vault" {
-  organization = "TFC-Unification-Test-Org-2"
-  workspace    = "AIOps_platform"
+  organization = var.ws_platform_org
+  workspace    = var.ws_platform_name
 }
