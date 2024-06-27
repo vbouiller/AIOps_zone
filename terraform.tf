@@ -48,7 +48,7 @@ provider "datadog" {}
 provider "environment" {}
 
 provider "tfe" {
-  hostname = "app.eu.terraform.io"
+  hostname = var.tf_hostname
 }
 
 provider "vault" {

@@ -1,3 +1,9 @@
+variable "tf_hostname" {
+  type        = string
+  description = "Terraform instance hostname. Defaults to the EU HCP Terraform instance"
+  default     = "app.eu.terraform.io"
+}
+
 variable "resource_group_location" {
   type    = string
   default = "francecentral"
