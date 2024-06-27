@@ -11,11 +11,6 @@ data "environment_sensitive_variable" "azure_client_secret" {
   name = "ARM_CLIENT_SECRET"
 }
 
-#Environement variables for Datadog
-data "environment_sensitive_variable" "dd_apikey" {
-  name = "DD_API_KEY"
-}
-
 # AIOps_Platform HCP outputs
 
 data "tfe_outputs" "aiops_platform_vault" {
