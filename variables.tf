@@ -78,6 +78,11 @@ variable "ws_platform_name" {
   default     = "AIOps_platform"
 }
 
+variable "vault_openai_mount" {
+  type        = string
+  description = "(Optional) Path of the Vault's kvv2 mount point to insert the openai secret. Default: kv"
+  default     = "kv"
+}
 
 # OpenAI variables
 
