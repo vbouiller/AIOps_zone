@@ -28,7 +28,8 @@ variable "subnet_prefixes" {
 }
 
 variable "admin_password" {
-  type = string
+  type      = string
+  sensitive = true
 }
 
 variable "pkr_bucket_name" {
@@ -44,12 +45,14 @@ variable "pkr_channel_name" {
 
 variable "pkr_platform" {
   type        = string
-  description = "(Required) HCP Packer platform where the image is stored"
+  description = "(Optional) HCP Packer platform where the image is stored. Default: azure"
+  default     = "azure"
 }
 
 variable "pkr_region" {
   type        = string
-  description = "(Required) HCP Packer region where the image is stored"
+  description = "(Optional) HCP Packer region where the image is stored. Default: francecentral"
+  default     = "francecentral"
 }
 
 variable "azure_pkey" {
