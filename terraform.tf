@@ -43,7 +43,7 @@ provider "azurerm" {
 
 provider "hcp" {}
 
-provider "datadog" {}
+# provider "datadog" {}
 
 provider "environment" {}
 
